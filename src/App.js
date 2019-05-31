@@ -16,12 +16,14 @@ class App extends React.Component {
 		this.setState({value: v});
 	}
 
+	transText = (text) => text.toUpperCase();
+
 	render() {
 		const value = this.state.value;
 
 		return (
 			<div className="app-container">
-				<TextZone value={value} onChange={this.updateValue} />
+				<TextZone value={value} onChange={this.updateValue} change={this.transText}/>
 				<ReplaceRules />
 			</div>
 		);

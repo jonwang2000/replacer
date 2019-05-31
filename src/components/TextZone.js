@@ -13,7 +13,8 @@ class TextZone extends React.Component {
 	}
 
 	render() {
-		const value = this.props.value;
+        const value = this.props.value;
+        const change = this.props.change;
 
 		return (
 			<div className="textzone-div">
@@ -28,7 +29,7 @@ class TextZone extends React.Component {
 					readOnly
 					id="output-zone"
 					className="zone-area"
-					value={value}
+					value={change(value)}
 				/>
 			</div>
 		);
