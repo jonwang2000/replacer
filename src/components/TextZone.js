@@ -1,5 +1,4 @@
 import React from "react";
-import { arrayTypeAnnotation } from "@babel/types";
 
 class TextZone extends React.Component {
 	render() {
