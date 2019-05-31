@@ -8,27 +8,28 @@ class TextZone extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange(event) {
-		this.setState({ value: event.target.value });
+	handleChange(e) {
+		this.props.onChange(e.target.value);
 	}
 
 	render() {
+		const value = this.props.value;
+
 		return (
 			<div className="textzone-div">
 				<textarea
 					id="input-zone"
 					className="zone-area"
-					value={this.state.value}
+					value={value}
 					onChange={this.handleChange}
 				/>
 				->
 				<textarea
-					readonly="readonly"
+					readOnly
 					id="output-zone"
-                    className="zone-area"
-                    value = {this.state.value}
-				>
-				</textarea>
+					className="zone-area"
+					value={value}
+				/>
 			</div>
 		);
 	}

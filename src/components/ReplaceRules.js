@@ -5,7 +5,7 @@ class ReplaceRules extends React.Component {
 		return (
 			<div className="rule">
 				<h3>rule</h3>
-				<input type="text" class="rule-input" placeholder="input"/>
+				<input type="text" className="rule-input" placeholder="input"/>
 				->
 				<input type="text" className="rule-output" placeholder="output"/>
 			</div>
