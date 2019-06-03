@@ -4,6 +4,7 @@ import ReplaceRules from "./components/ReplaceRules";
 import TextZone from "./components/TextZone";
 
 class App extends React.Component {
+	// State contains value of inputted text from TextZone
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,10 +13,13 @@ class App extends React.Component {
 		this.updateValue = this.updateValue.bind(this);
 	}
 
+	// Update value for state
 	updateValue(v) {
 		this.setState({value: v});
 	}
 
+	// TEMPORARY FUNCTION ***** CHANGE LATER *************
+	// transText changes given text to uppercase
 	transText = (text) => text.toUpperCase();
 
 	render() {
