@@ -1,6 +1,10 @@
+/*
+ *  App.js is the primary application.
+ *
+ */
+
 import React, { useState } from "react";
 import "./App.css";
-//import ReplaceRules from "./components/ReplaceRules";
 import TextZone from "./components/TextZone";
 
 const App = props => {
@@ -11,7 +15,7 @@ const App = props => {
 	const inputHandle = event => {
 		setInputText(event.target.value);
     };
-    
+
     // Output text
     const output = inputText;
 

@@ -1,3 +1,8 @@
+/*
+ *  TextZone consists of the input and output text fields.
+ *  It only should be inputting data from the input field.
+ */
+
 import React from "react";
 
 const TextZone = props => {
