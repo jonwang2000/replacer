@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TextZone from "./components/TextZone";
+import ReplaceRules from "./components/ReplaceRules";
 
 const App = props => {
 	// State for input text
@@ -14,16 +15,22 @@ const App = props => {
 	// Event handler for input
 	const inputHandle = event => {
 		setInputText(event.target.value);
-    };
+	};
 
-    // Output text
-    const output = inputText;
+	// Output text
+	const output = inputText;
 
 	return (
 		<div>
 			<h1>Replacer</h1>
 
-			<TextZone inputText={inputText} inputHandle={inputHandle} outputText={output}/>
+			<TextZone
+				inputText={inputText}
+				inputHandle={inputHandle}
+				outputText={output}
+			/>
+
+			<ReplaceRules />
 		</div>
 	);
 };
