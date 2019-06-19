@@ -12,6 +12,9 @@ const App = props => {
 	// State for input text
 	const [inputText, setInputText] = useState("");
 
+	// State for rules
+	const [rules, setRules] = useState([]);
+
 	// Event handler for input
 	const inputHandle = event => {
 		setInputText(event.target.value);
@@ -30,7 +33,7 @@ const App = props => {
 				outputText={output}
 			/>
 
-			<ReplaceRules />
+			<ReplaceRules rules={rules} setRules={setRules} />
 		</div>
 	);
 };
