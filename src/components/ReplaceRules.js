@@ -24,21 +24,10 @@ const ReplaceRules = props => {
 		setRules(newRules);
 	};
 
-	const updateIn = (upid, text) => {
+	const updateProp = (upid, prop, text) => {
 		const newRules = rules.map(rule => {
 			if (rule.id === upid) {
-				rule.inRule = text;
-				return rule;
-			}
-			return rule;
-		});
-		setRules(newRules);
-	};
-
-	const updateOut = (upid, text) => {
-		const newRules = rules.map(rule => {
-			if (rule.id === upid) {
-				rule.outRule = text;
+				rule[prop] = text;
 				return rule;
 			}
 			return rule;
@@ -50,9 +39,13 @@ const ReplaceRules = props => {
 		return (
 			<Rule
 				inRule={rule.inRule}
-				editIn={event => updateIn(rule.id, event.target.value)}
+				editIn={event =>
+					updateProp(rule.id, "inRule", event.target.value)
+				}
 				outRule={rule.outRule}
-				editOut={event => updateOut(rule.id, event.target.value)}
+				editOut={event =>
+					updateProp(rule.id, "outRule", event.target.value)
+				}
 				delRule={() => deleter(rule.id)}
 				key={rule.id}
 			/>
