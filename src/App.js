@@ -9,7 +9,6 @@
  */
 
 import React, { useState } from "react";
-import "./App.css";
 import TextZone from "./components/TextZone";
 import ReplaceRules from "./components/ReplaceRules";
 import uuidv4 from "uuid/v4";
