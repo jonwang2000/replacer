@@ -61,13 +61,11 @@ const ReplaceRules = props => {
 	});
 
 	return (
-		<div>
-			<div>
+		<React.Fragment>
 				<button onClick={addRule}>+</button>
 				<button onClick={clearRules}>x</button>
 				{displayRules}
-			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 

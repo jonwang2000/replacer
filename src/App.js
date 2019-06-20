@@ -44,7 +44,7 @@ const App = () => {
 	const output = transitionText;
 
 	return (
-		<div className="app-container">
+		<React.Fragment className="app-container">
 			<h1>Replacer</h1>
 
 			<TextZone
@@ -54,7 +54,7 @@ const App = () => {
 			/>
 
 			<ReplaceRules rules={rules} setRules={setRules} />
-		</div>
+		</React.Fragment>
 	);
 };
 
