@@ -7,13 +7,14 @@ import React, { useState } from "react";
 import "./App.css";
 import TextZone from "./components/TextZone";
 import ReplaceRules from "./components/ReplaceRules";
+import uuidv4 from "uuid/v4";
 
 const App = props => {
 	// State for input text
 	const [inputText, setInputText] = useState("");
 
 	// State for rules
-	const [rules, setRules] = useState([]);
+	const [rules, setRules] = useState([ { in: "hello", out: "hi", id: uuidv4() } ]);
 
 	// Event handler for input
 	const inputHandle = event => {
