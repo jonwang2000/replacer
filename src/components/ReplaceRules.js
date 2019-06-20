@@ -16,7 +16,7 @@ const ReplaceRules = props => {
 	};
 
 	const clearRules = () => {
-		console.log("clearall");
+		setRules([]);
 	};
 
 	const deleter = delID => {
