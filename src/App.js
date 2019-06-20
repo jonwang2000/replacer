@@ -23,8 +23,16 @@ const App = props => {
 		setInputText(event.target.value);
 	};
 
-	// Output text
-	const output = inputText;
+	const functionArr = rules.map(rule => text =>
+		text.replace(new RegExp(rule.inRule, "g"), rule.outRule)
+	);
+
+	let transitionText = inputText;
+	functionArr.forEach(func => {
+		transitionText = func(transitionText);
+	});
+
+	const output = transitionText;
 
 	return (
 		<div>
