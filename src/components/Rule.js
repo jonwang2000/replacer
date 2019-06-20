@@ -1,5 +1,7 @@
 /*
  *  Rule contains a single rule: the input, the output, and the delete button
+ *  Fairly simple component relying on ReplaceRules for logic/functions
+ *
  */
 
 import React from "react";
