@@ -19,17 +19,16 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import uuidv4 from "uuid/v4";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-	base: {
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center"
+	root: {
+		paddingTop: '100px'
 	}
 }));
 
 const App = () => {
-	const classes = useStyles;
+	const classes = useStyles();
 
 	// State for input text
 	const [inputText, setInputText] = useState("");
@@ -61,22 +60,28 @@ const App = () => {
 	const output = transitionText;
 
 	return (
-		<Container component="main" maxWidth="xs">
+		<Container className={classes.root} component="main" maxWidth="lg">
 			<CssBaseline />
 
-			<div className={classes.base}>
-				<Typography variant="h3" component="h1" align="center">
-					Replacer
-				</Typography>
+			<Grid container spacing={3}>
+				<Grid item xs={12}>
+					<Typography variant="h3" component="h1" align="center">
+						Replacer
+					</Typography>
+				</Grid>
 
-				<TextZone
-					inputText={inputText}
-					inputHandle={inputHandle}
-					outputText={output}
-				/>
+				<Grid item xs={12}>
+					<TextZone
+						inputText={inputText}
+						inputHandle={inputHandle}
+						outputText={output}
+					/>
+				</Grid>
 
-				<ReplaceRules rules={rules} setRules={setRules} />
-			</div>
+				<Grid item xs={12}>
+					<ReplaceRules rules={rules} setRules={setRules} />
+				</Grid>
+			</Grid>
 		</Container>
 	);
 };
