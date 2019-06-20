@@ -35,7 +35,7 @@ const ReplaceRules = props => {
 	const addRule = () => {
 		setRules([
 			...rules,
-			{ inRule: "Input", outRule: "Output", id: uuidv4() }
+			{ inRule: "", outRule: "", id: uuidv4() }
 		]);
 	};
 

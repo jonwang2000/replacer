@@ -23,7 +23,8 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		paddingTop: "100px"
+        paddingTop: "100px",
+        paddingBottom: "100px"
 	}
 }));
 
@@ -35,7 +36,7 @@ const App = () => {
 
 	// State for rules
 	const [rules, setRules] = useState([
-		{ inRule: "hello", outRule: "hi", id: uuidv4() }
+		{ inRule: "", outRule: "", id: uuidv4() }
 	]);
 
 	// Event handler for input

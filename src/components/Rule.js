@@ -43,7 +43,7 @@ const Rule = props => {
 			</Grid>
 			<Grid item xs>
 				<TextField
-					label="input"
+					label="output"
 					value={outRule}
 					onChange={editOut}
 					margin="normal"
