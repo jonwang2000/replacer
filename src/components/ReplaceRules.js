@@ -7,10 +7,30 @@
 import React from "react";
 import Rule from "./Rule";
 import uuidv4 from "uuid/v4";
+
 import { Container } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+
+import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
+import Delete from "@material-ui/icons/Delete";
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+	button: {
+		margin: theme.spacing(1)
+    },
+    alignDiv: {
+        display: 'flex',
+        justifyContent: 'center'
+    }
+}));
 
 const ReplaceRules = props => {
 	const { rules, setRules } = props;
+
+	const classes = useStyles();
 
 	// Add object to rule array
 	const addRule = () => {
@@ -62,10 +82,24 @@ const ReplaceRules = props => {
 	});
 
 	return (
-		<Container maxWidth='xs'>
-				<button onClick={addRule}>+</button>
-				<button onClick={clearRules}>x</button>
-				{displayRules}
+		<Container maxWidth="xs">
+			<div className={classes.alignDiv}>
+				<Button
+					variant="outlined"
+					className={classes.button}
+					onClick={addRule}
+				>
+					<AddCircleOutline />
+				</Button>
+				<Button
+					variant="outlined"
+					className={classes.button}
+					onClick={clearRules}
+				>
+					<Delete />
+				</Button>
+			</div>
+			{displayRules}
 		</Container>
 	);
 };
