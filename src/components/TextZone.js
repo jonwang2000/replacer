@@ -15,8 +15,12 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
 	arrow: {
 		position: "relative",
-		top: "10px"
-	}
+        top: "10px",
+        right: "3px"
+    },
+    inputText: {
+        width: "100%"
+    }
 }));
 
 // Unholy ground, used for Textfields
@@ -55,7 +59,7 @@ const TextZone = props => {
 					onChange={inputHandle}
 					margin="normal"
 					variant="outlined"
-                    className={classes.help}
+                    className={classes.inputText}
 				/>
 			</Grid>
 			<Grid item className={classes.arrow} xs={1}>
@@ -72,7 +76,7 @@ const TextZone = props => {
 					readOnly
 					margin="normal"
 					variant="outlined"
-					className={classes.help}
+					className={classes.inputText}
 				/>
 			</Grid>
 		</Grid>
