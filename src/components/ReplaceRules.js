@@ -10,7 +10,6 @@ import uuidv4 from "uuid/v4";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
 
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import Delete from "@material-ui/icons/Delete";
@@ -20,11 +19,11 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
 	button: {
 		margin: theme.spacing(1)
-    },
-    alignDiv: {
-        display: 'flex',
-        justifyContent: 'center'
-    }
+	},
+	alignDiv: {
+		display: "flex",
+		justifyContent: "center"
+	}
 }));
 
 const ReplaceRules = props => {
