@@ -23,9 +23,11 @@ const App = props => {
 		setInputText(event.target.value);
 	};
 
-	const functionArr = rules.map(rule => text =>
-		text.replace(new RegExp(rule.inRule, "g"), rule.outRule)
-	);
+	const functionArr = rules
+		.filter(rule => rule.inRule !== "")
+		.map(rule => text =>
+			text.replace(new RegExp(rule.inRule, "g"), rule.outRule)
+		);
 
 	let transitionText = inputText;
 	functionArr.forEach(func => {
