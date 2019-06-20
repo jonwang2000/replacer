@@ -14,7 +14,9 @@ const App = props => {
 	const [inputText, setInputText] = useState("");
 
 	// State for rules
-	const [rules, setRules] = useState([ { in: "hello", out: "hi", id: uuidv4() } ]);
+	const [rules, setRules] = useState([
+		{ inRule: "hello", outRule: "hi", id: uuidv4() }
+	]);
 
 	// Event handler for input
 	const inputHandle = event => {

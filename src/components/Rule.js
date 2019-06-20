@@ -5,11 +5,15 @@
 import React from "react";
 
 const Rule = props => {
-	return <div>
-        <input/>
-        <input/>
-        <button>x</button>
-    </div>;
+	const { inRule, editIn, outRule, editOut, delRule } = props;
+
+	return (
+		<div>
+			<input value={inRule} onChange={editIn} />
+			<input value={outRule} onChange={editOut} />
+			<button onClick={delRule}>x</button>
+		</div>
+	);
 };
 
 export default Rule;
