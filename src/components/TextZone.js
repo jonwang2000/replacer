@@ -11,12 +11,12 @@ const TextZone = props => {
 	return (
 		<div>
 			<textarea
-				class="zone-area"
+				className="zone-area"
 				value={inputText}
 				onChange={inputHandle}
 			/>
 			<div>-></div>
-			<textarea class="zone-area" value={outputText} readOnly />
+			<textarea className="zone-area" value={outputText} readOnly />
 		</div>
 	);
 };

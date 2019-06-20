@@ -37,7 +37,7 @@ const App = props => {
 	const output = transitionText;
 
 	return (
-		<div class="app-container">
+		<div className="app-container">
 			<h1>Replacer</h1>
 
 			<TextZone
