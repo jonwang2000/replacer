@@ -23,7 +23,7 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		paddingTop: '100px'
+		paddingTop: "100px"
 	}
 }));
 
@@ -60,10 +60,10 @@ const App = () => {
 	const output = transitionText;
 
 	return (
-		<Container className={classes.root} component="main" maxWidth="lg">
+		<Container className={classes.root} component="main" maxWidth="sm">
 			<CssBaseline />
 
-			<Grid container spacing={3}>
+			<Grid container spacing={3} maxWidth='lg'>
 				<Grid item xs={12}>
 					<Typography variant="h3" component="h1" align="center">
 						Replacer
@@ -74,7 +74,7 @@ const App = () => {
 					<TextZone
 						inputText={inputText}
 						inputHandle={inputHandle}
-						outputText={output}
+                        outputText={output}
 					/>
 				</Grid>
 
