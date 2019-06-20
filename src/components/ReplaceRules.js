@@ -7,6 +7,7 @@
 import React from "react";
 import Rule from "./Rule";
 import uuidv4 from "uuid/v4";
+import { Container } from "@material-ui/core";
 
 const ReplaceRules = props => {
 	const { rules, setRules } = props;
@@ -61,11 +62,11 @@ const ReplaceRules = props => {
 	});
 
 	return (
-		<React.Fragment>
+		<Container maxWidth='xs'>
 				<button onClick={addRule}>+</button>
 				<button onClick={clearRules}>x</button>
 				{displayRules}
-		</React.Fragment>
+		</Container>
 	);
 };
 

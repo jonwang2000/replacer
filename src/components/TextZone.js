@@ -4,12 +4,14 @@
  */
 
 import React from "react";
+import { Container } from "@material-ui/core";
+
 
 const TextZone = props => {
 	const { inputText, inputHandle, outputText } = props;
 
 	return (
-		<div>
+		<Container component='div' maxWidth='xs' >
 			<textarea
 				className="zone-area"
 				value={inputText}
@@ -17,7 +19,7 @@ const TextZone = props => {
 			/>
 			<div>-></div>
 			<textarea className="zone-area" value={outputText} readOnly />
-		</div>
+		</Container>
 	);
 };
 

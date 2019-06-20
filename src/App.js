@@ -9,11 +9,28 @@
  */
 
 import React, { useState } from "react";
+
 import TextZone from "./components/TextZone";
 import ReplaceRules from "./components/ReplaceRules";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+
 import uuidv4 from "uuid/v4";
 
+const useStyles = makeStyles(theme => ({
+	base: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center"
+	}
+}));
+
 const App = () => {
+	const classes = useStyles;
+
 	// State for input text
 	const [inputText, setInputText] = useState("");
 
@@ -44,17 +61,23 @@ const App = () => {
 	const output = transitionText;
 
 	return (
-		<React.Fragment className="app-container">
-			<h1>Replacer</h1>
+		<Container component="main" maxWidth="xs">
+			<CssBaseline />
 
-			<TextZone
-				inputText={inputText}
-				inputHandle={inputHandle}
-				outputText={output}
-			/>
+			<div className={classes.base}>
+				<Typography variant="h3" component="h1" align="center">
+					Replacer
+				</Typography>
 
-			<ReplaceRules rules={rules} setRules={setRules} />
-		</React.Fragment>
+				<TextZone
+					inputText={inputText}
+					inputHandle={inputHandle}
+					outputText={output}
+				/>
+
+				<ReplaceRules rules={rules} setRules={setRules} />
+			</div>
+		</Container>
 	);
 };
 
