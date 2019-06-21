@@ -16,6 +16,8 @@ import ReplaceRules from "./components/ReplaceRules";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 import uuidv4 from "uuid/v4";
@@ -23,8 +25,8 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-        paddingTop: "100px",
-        paddingBottom: "100px"
+		paddingTop: "70px",
+		paddingBottom: "100px"
 	}
 }));
 
@@ -64,7 +66,7 @@ const App = () => {
 		<Container className={classes.root} component="main" maxWidth="sm">
 			<CssBaseline />
 
-			<Grid container spacing={3} maxWidth='lg'>
+			<Grid container spacing={3} maxWidth="lg">
 				<Grid item xs={12}>
 					<Typography variant="h3" component="h1" align="center">
 						Replacer
@@ -75,12 +77,31 @@ const App = () => {
 					<TextZone
 						inputText={inputText}
 						inputHandle={inputHandle}
-                        outputText={output}
+						outputText={output}
 					/>
 				</Grid>
 
 				<Grid item xs={12}>
 					<ReplaceRules rules={rules} setRules={setRules} />
+				</Grid>
+
+				<Grid item xs={12}>
+					<Typography variant="p" component="p" align="center">
+						Made with React and Material UI
+						<br />
+						<Link
+							component="button"
+							variant="body2"
+							onClick={() =>
+								window.open(
+									"https://github.com/jonwang2000/replacer",
+									"_blank"
+								)
+							}
+						>
+							Github link
+						</Link>
+					</Typography>
 				</Grid>
 			</Grid>
 		</Container>

@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
         right: "3px"
     },
     inputText: {
-        width: "100%"
+        width: "100%",
+        paddingBottom: 0
     }
 }));
 

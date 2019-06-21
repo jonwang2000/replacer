@@ -30,8 +30,14 @@ const Rule = props => {
 	const { inRule, editIn, outRule, editOut, delRule } = props;
 
 	return (
-		<Grid container spacing={2} maxWidth="xs" className={classes.ruleDiv}>
-            <Grid item xs={1}/>
+		<Grid
+			container
+			spacing={2}
+			maxWidth="xs"
+			className={classes.ruleDiv}
+			style={{ marginTop: "-13px" }}
+		>
+			<Grid item xs={1} />
 			<Grid item xs={5}>
 				<TextField
 					label="input"

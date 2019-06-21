@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "center"
 	},
 	entire: {
-		marginTop: 10
+        padding: 0
 	}
 }));
 
