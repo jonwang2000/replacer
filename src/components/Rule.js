@@ -7,8 +7,8 @@
 import React from "react";
 
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
 
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
 
@@ -18,10 +18,10 @@ const useStyles = makeStyles(theme => ({
 	ruleDiv: {
 		display: "flex",
 		alignItems: "center"
-    },
-    button: {
-        top: "3px"
-    }
+	},
+	button: {
+		right: 5
+	}
 }));
 
 const Rule = props => {
@@ -30,35 +30,34 @@ const Rule = props => {
 	const { inRule, editIn, outRule, editOut, delRule } = props;
 
 	return (
-		<Grid container spacing={1} maxWidth="xs" className={classes.ruleDiv}>
+		<Grid container spacing={2} maxWidth="xs" className={classes.ruleDiv}>
             <Grid item xs={1}/>
-			<Grid item xs>
+			<Grid item xs={5}>
 				<TextField
 					label="input"
 					value={inRule}
 					onChange={editIn}
-					margin="normal"
+					margin="dense"
 					variant="outlined"
 				/>
 			</Grid>
-			<Grid item xs>
+			<Grid item xs={5}>
 				<TextField
 					label="output"
 					value={outRule}
 					onChange={editOut}
-					margin="normal"
+					margin="dense"
 					variant="outlined"
 				/>
 			</Grid>
 			<Grid item xs={1}>
-				<Button
+				<IconButton
 					onClick={delRule}
 					variant="default"
-					size="large"
 					className={classes.button}
 				>
 					<RemoveCircleOutline />
-				</Button>
+				</IconButton>
 			</Grid>
 		</Grid>
 	);

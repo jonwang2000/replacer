@@ -10,19 +10,23 @@ import uuidv4 from "uuid/v4";
 
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+import { makeStyles } from "@material-ui/core/styles";
 
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import Delete from "@material-ui/icons/Delete";
 
-import { makeStyles } from "@material-ui/core/styles";
-
 const useStyles = makeStyles(theme => ({
 	button: {
-		margin: theme.spacing(1)
+		margin: theme.spacing(1),
+		top: 0
 	},
 	alignDiv: {
 		display: "flex",
 		justifyContent: "center"
+	},
+	entire: {
+		marginTop: 10
 	}
 }));
 
@@ -33,10 +37,7 @@ const ReplaceRules = props => {
 
 	// Add object to rule array
 	const addRule = () => {
-		setRules([
-			...rules,
-			{ inRule: "", outRule: "", id: uuidv4() }
-		]);
+		setRules([...rules, { inRule: "", outRule: "", id: uuidv4() }]);
 	};
 
 	// Reset rule array to empty
@@ -81,23 +82,27 @@ const ReplaceRules = props => {
 	});
 
 	return (
-		<Container maxWidth="xs">
-			<div className={classes.alignDiv}>
-				<Button
-					variant="outlined"
-					className={classes.button}
-					onClick={addRule}
-				>
-					<AddCircleOutline />
-				</Button>
-				<Button
-					variant="outlined"
-					className={classes.button}
-					onClick={clearRules}
-				>
-					<Delete />
-				</Button>
-			</div>
+		<Container spacing={0} maxWidth="xs" className={classes.entire}>
+			<span className={classes.alignDiv}>
+				<Tooltip title="Add Rule" placement="top">
+					<Button
+						variant="outlined"
+						className={classes.button}
+						onClick={addRule}
+					>
+						<AddCircleOutline />
+					</Button>
+				</Tooltip>
+				<Tooltip title="Clear All" placement="top">
+					<Button
+						variant="outlined"
+						className={classes.button}
+						onClick={clearRules}
+					>
+						<Delete />
+					</Button>
+				</Tooltip>
+			</span>
 			{displayRules}
 		</Container>
 	);
