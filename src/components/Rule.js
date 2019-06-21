@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
 	ruleDiv: {
@@ -23,6 +23,24 @@ const useStyles = makeStyles(theme => ({
 		right: 5
 	}
 }));
+
+// Unholy ground, used for Textfields
+// ****** DON'T MESS WITH THIS I NEED TO DO MORE RESEARCH *******
+const CSSTextField = withStyles({
+	root: {
+		"& label.Mui-focused": {
+			color: "grey"
+		},
+		"& .MuiOutlinedInput-root": {
+			"&:hover fieldset": {
+				borderColor: "grey"
+			},
+			"&.Mui-focused fieldset": {
+				borderColor: "grey"
+			}
+		}
+	}
+})(TextField);
 
 const Rule = props => {
 	const classes = useStyles();
@@ -39,7 +57,7 @@ const Rule = props => {
 		>
 			<Grid item xs={1} />
 			<Grid item xs={5}>
-				<TextField
+				<CSSTextField
 					label="input"
 					value={inRule}
 					onChange={editIn}
@@ -48,7 +66,7 @@ const Rule = props => {
 				/>
 			</Grid>
 			<Grid item xs={5}>
-				<TextField
+				<CSSTextField
 					label="output"
 					value={outRule}
 					onChange={editOut}
