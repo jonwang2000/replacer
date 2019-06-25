@@ -12,7 +12,6 @@ import React, { useState } from "react";
 
 import TextZone from "./components/TextZone";
 import ReplaceRules from "./components/ReplaceRules";
-import Help from "./components/Help"
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
@@ -72,7 +71,6 @@ const App = () => {
 					<Typography variant="h3" component="h1" align="center">
 						Replacer
 					</Typography>
-					<Help />
 				</Grid>
 
 				<Grid item xs={12}>
