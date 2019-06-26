@@ -11,6 +11,8 @@ import {
     Typography
 } from "@material-ui/core";
 
+import uuidv4 from "uuid/v4";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -20,23 +22,45 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const JsonEdit = props => {
-    const [show, setShow] = useState(false);
-
     const { className, rules } = props;
     const classes = useStyles();
 
+    const [show, setShow] = useState(false);
+
+    const strJSON = JSON.stringify(rules, ["inRule", "outRule"]);
+
+    const [text, setText] = useState(strJSON);
+
     const onButtonClick = () => {
         setShow(true);
+        setText(strJSON);
     };
 
     const onClose = () => {
         setShow(false);
+        setText(strJSON);
+    };
+
+    const handleChange = e => {
+        setText(e.target.value);
     };
 
     const handleImport = () => {
+        let parsed;
+        try {
+            parsed = JSON.parse(text);
+        } catch (e) {
+            alert("Invalid Input.");
+            setShow(false);
+            setText(strJSON);
+            return;
+        }
+        parsed.forEach(entry => (entry.id = uuidv4()));
+        console.log(parsed);
         setShow(false);
-    }
-    
+        setText(strJSON);
+    };
+
     return (
         <div>
             <Tooltip title="Edit Directly" placement="top">
@@ -70,7 +94,8 @@ const JsonEdit = props => {
                         rows={8}
                         rowsMax={10}
                         fullWidth={true}
-                        defaultValue={JSON.stringify(rules,["inRule" , "outRule"])}
+                        value={text}
+                        onChange={handleChange}
                         variant="outlined"
                     />
                     <DialogActions>
