@@ -7,6 +7,7 @@
 import React from "react";
 import Rule from "./Rule";
 import Help from "./Help";
+import JsonEdit from './JsonEdit'
 import uuidv4 from "uuid/v4";
 
 import { Container } from "@material-ui/core";
@@ -104,15 +105,7 @@ const ReplaceRules = props => {
                         <Delete />
                     </Button>
                 </Tooltip>
-                <Tooltip title="Test" placement="top">
-                    <Button
-                        variant="outlined"
-                        className={classes.button}
-                        onClick={() => console.log(JSON.stringify(rules))}
-                    >
-                        <Delete />
-                    </Button>
-                </Tooltip>
+                <JsonEdit className={classes.button} rules={rules}/>
             </span>
             {displayRules}
         </Container>

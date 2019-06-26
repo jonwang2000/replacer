@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+
 import {
+    Tooltip,
     Button,
+    TextField,
     Dialog,
     DialogTitle,
-    DialogContent,
     DialogActions,
-    Typography,
-    Tooltip
+    DialogContent,
+    Typography
 } from "@material-ui/core";
-import HelpOutline from "@material-ui/icons/HelpOutline";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -18,10 +19,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const Help = props => {
+const JsonEdit = props => {
     const [show, setShow] = useState(false);
 
-    const { className } = props;
+    const { className, rules } = props;
     const classes = useStyles();
 
     const onButtonClick = () => {
@@ -34,39 +35,41 @@ const Help = props => {
 
     return (
         <div>
-            <Tooltip title="Help" placement="top">
+            <Tooltip title="Edit Directly" placement="top">
                 <Button
-                    onClick={onButtonClick}
-                    className={className}
                     variant="outlined"
+                    className={className}
+                    onClick={onButtonClick}
                 >
-                    <HelpOutline />
+                    JSON
                 </Button>
             </Tooltip>
+
             <Dialog open={show} onClose={onClose}>
                 <DialogTitle>
                     <Typography
                         variant="h4"
+                        component="p"
                         align="center"
                         className={classes.marginer}
                     >
-                        Help/About
+                        JSON Edit
                     </Typography>
                 </DialogTitle>
                 <DialogContent>
-                    <Typography paragraph="true" variant="body1">
-                        This is a React app meant change and manipulate text
-                        based on user-defined rules using Material-UI for UI.
+                    <Typography component="p" paragraph={true}>
+                        You can import or export your rules here in JSON format.
                     </Typography>
-                    <Typography paragraph="true" variant="body1">
-                        To use, simply create a rule, place in what you want
-                        replaced to the input field, and what you want to
-                        replace it in the output field.
-                    </Typography>
-                    <Typography variant="body1">
-                        Replacer works through rules top down, so outputs that
-                        match later inputs will also be replaced.
-                    </Typography>
+                    <TextField
+                        id="standard-multiline-flexible"
+                        multiline
+                        rows={8}
+                        rowsMax={10}
+                        readOnly
+                        fullWidth={true}
+                        value={JSON.stringify(rules)}
+                        variant="outlined"
+                    />
                     <DialogActions>
                         <Button
                             onClick={onClose}
@@ -82,4 +85,4 @@ const Help = props => {
     );
 };
 
-export default Help;
+export default JsonEdit;
