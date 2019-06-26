@@ -24,88 +24,98 @@ import uuidv4 from "uuid/v4";
 import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-	root: {
-		paddingTop: "70px",
-		paddingBottom: "100px"
-	}
+    root: {
+        paddingTop: "70px",
+        paddingBottom: "100px"
+    }
 }));
 
 const App = () => {
-	const classes = useStyles();
+    const classes = useStyles();
 
-	// State for input text
-	const [inputText, setInputText] = useState("");
+    // State for input text
+    const [inputText, setInputText] = useState("");
 
-	// State for rules
-	const [rules, setRules] = useState([
-		{ inRule: "", outRule: "", id: uuidv4() }
-	]);
+    // State for rules
+    const [rules, setRules] = useState([
+        { inRule: "", outRule: "", id: uuidv4() }
+    ]);
 
-	// Event handler for input
-	const inputHandle = event => {
-		setInputText(event.target.value);
-	};
+    // Event handler for input
+    const inputHandle = event => {
+        setInputText(event.target.value);
+    };
 
-	// Creates an array of functions based on the current rules
-	const functionArr = rules
-		.filter(rule => rule.inRule !== "")
-		.map(rule => text =>
-			text.replace(new RegExp(rule.inRule, "g"), rule.outRule)
-		);
+    // Helper function for assisting RegExp with special characters
+    // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+    function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); 
+    }
 
-	// Runs the rules against a copy of inputText
-	let transitionText = inputText;
-	functionArr.forEach(func => {
-		transitionText = func(transitionText);
-	});
+    // Creates an array of functions based on the current rules
+    const functionArr = rules
+        .filter(rule => rule.inRule !== "")
+        .map(rule => text =>
+            text.replace(
+                // Changed so that special characters no longer cause app to crash
+                new RegExp(escapeRegExp(rule.inRule), "g"),
+                rule.outRule
+            )
+        );
 
-	// Set output to transformed text
-	const output = transitionText;
+    // Runs the rules against a copy of inputText
+    let transitionText = inputText;
+    functionArr.forEach(func => {
+        transitionText = func(transitionText);
+    });
 
-	return (
-		<Container className={classes.root} component="main" maxWidth="sm">
-			<CssBaseline />
+    // Set output to transformed text
+    const output = transitionText;
 
-			<Grid container spacing={3}>
-				<Grid item xs={12}>
-					<Typography variant="h3" component="h1" align="center">
-						Replacer
-					</Typography>
-				</Grid>
+    return (
+        <Container className={classes.root} component="main" maxWidth="sm">
+            <CssBaseline />
 
-				<Grid item xs={12}>
-					<TextZone
-						inputText={inputText}
-						inputHandle={inputHandle}
-						outputText={output}
-					/>
-				</Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                    <Typography variant="h3" component="h1" align="center">
+                        Replacer
+                    </Typography>
+                </Grid>
 
-				<Grid item xs={12}>
-					<ReplaceRules rules={rules} setRules={setRules} />
-				</Grid>
+                <Grid item xs={12}>
+                    <TextZone
+                        inputText={inputText}
+                        inputHandle={inputHandle}
+                        outputText={output}
+                    />
+                </Grid>
 
-				<Grid item xs={12}>
-					<Typography variant="body1" component="p" align="center">
-						Made with React and Material UI
-						<br />
-						<Link
-							component="button"
-							variant="body2"
-							onClick={() =>
-								window.open(
-									"https://github.com/jonwang2000/replacer",
-									"_blank"
-								)
-							}
-						>
-							Github link
-						</Link>
-					</Typography>
-				</Grid>
-			</Grid>
-		</Container>
-	);
+                <Grid item xs={12}>
+                    <ReplaceRules rules={rules} setRules={setRules} />
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Typography variant="body1" component="p" align="center">
+                        Made with React and Material UI
+                        <br />
+                        <Link
+                            component="button"
+                            variant="body2"
+                            onClick={() =>
+                                window.open(
+                                    "https://github.com/jonwang2000/replacer",
+                                    "_blank"
+                                )
+                            }
+                        >
+                            Github link
+                        </Link>
+                    </Typography>
+                </Grid>
+            </Grid>
+        </Container>
+    );
 };
 
 export default App;
