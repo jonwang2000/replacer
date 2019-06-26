@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: "center"
 	},
 	button: {
-		right: 5
+		right: theme.spacing(1)
 	}
 }));
 
@@ -45,13 +45,12 @@ const CSSTextField = withStyles({
 // ============================================================================
 
 const Rule = props => {
-
 	// Props and Styles
 	const { inRule, editIn, outRule, editOut, delRule } = props;
-    const classes = useStyles();
+	const classes = useStyles();
 
-    // Component Return
-    // ========================================================================
+	// Component Return
+	// ========================================================================
 	return (
 		<Grid
 			container
@@ -80,6 +79,7 @@ const Rule = props => {
 			</Grid>
 			<Grid item xs={1}>
 				<IconButton
+					size="small"
 					onClick={delRule}
 					variant="default"
 					className={classes.button}
