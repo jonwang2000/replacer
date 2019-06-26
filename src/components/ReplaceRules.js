@@ -7,7 +7,7 @@
 import React from "react";
 import Rule from "./Rule";
 import Help from "./Help";
-import JsonEdit from './JsonEdit'
+import JsonEdit from "./JsonEdit";
 import uuidv4 from "uuid/v4";
 
 import { Container } from "@material-ui/core";
@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => ({
     },
     entire: {
         padding: 0
+    },
+    marginer: {
+        marginTop: theme.spacing(2)
     }
 }));
 
@@ -105,7 +108,12 @@ const ReplaceRules = props => {
                         <Delete />
                     </Button>
                 </Tooltip>
-                <JsonEdit className={classes.button} rules={rules} setRules={setRules}/>
+                <JsonEdit
+                    titleStyle={classes.marginer}
+                    buttonStyle={classes.button}
+                    rules={rules}
+                    setRules={setRules}
+                />
             </span>
             {displayRules}
         </Container>

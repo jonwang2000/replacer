@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+/*
+ * JsonEdit gives the user of importing/exporting rule setups,
+ *      through a dialog and various states.
+ * 
+ */
 
+// Import statments
+import React, { useState } from "react";
 import {
     Tooltip,
     Button,
@@ -10,27 +16,24 @@ import {
     DialogContent,
     Typography
 } from "@material-ui/core";
-
 import uuidv4 from "uuid/v4";
 
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles(theme => ({
-    marginer: {
-        marginTop: theme.spacing(2)
-    }
-}));
+// Component
+// ============================================================================
 
 const JsonEdit = props => {
-    const { className, rules, setRules } = props;
-    const classes = useStyles();
+    // Props and Styles
+    const { titleStyle, buttonStyle, rules, setRules } = props;
 
-    const [show, setShow] = useState(false);
-
+    // Constant representing stringify'd data
     const strJSON = JSON.stringify(rules, ["inRule", "outRule"]);
 
+    // Stat hooks
+    const [show, setShow] = useState(false);
     const [text, setText] = useState(strJSON);
 
+    // Handlers
+    // ========================================================================
     const onButtonClick = () => {
         setShow(true);
         setText(strJSON);
@@ -42,8 +45,8 @@ const JsonEdit = props => {
     };
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text)
-    }
+        navigator.clipboard.writeText(text);
+    };
 
     const handleChange = e => {
         setText(e.target.value);
@@ -65,12 +68,14 @@ const JsonEdit = props => {
         setText(strJSON);
     };
 
+    // Component return 
+    // ========================================================================
     return (
         <div>
             <Tooltip title="Edit Directly" placement="top">
                 <Button
                     variant="outlined"
-                    className={className}
+                    className={buttonStyle}
                     onClick={onButtonClick}
                 >
                     JSON
@@ -83,7 +88,7 @@ const JsonEdit = props => {
                         variant="h4"
                         component="p"
                         align="center"
-                        className={classes.marginer}
+                        className={titleStyle}
                     >
                         JSON Edit
                     </Typography>
