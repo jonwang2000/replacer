@@ -8423,11 +8423,6 @@ replace-ext@1.0.0:
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
   integrity sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
 
-replace-string@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/replace-string/-/replace-string-3.0.0.tgz#49deafb57839fa3bab9c11ad449b006e0d436e69"
-  integrity sha512-jE5X/k3p2v8p6+wxhM1Ti0Oj9lYtwPbMj0ty8iSFpAFIihkiNpl6uHgYW1De/r9DG3vA7HGIgIBMjlwJZXL02w==
-
 request-promise-core@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.2.tgz#339f6aababcafdb31c799ff158700336301d3346"
