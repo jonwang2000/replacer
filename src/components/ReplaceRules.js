@@ -105,7 +105,7 @@ const ReplaceRules = props => {
                         <Delete />
                     </Button>
                 </Tooltip>
-                <JsonEdit className={classes.button} rules={rules}/>
+                <JsonEdit className={classes.button} rules={rules} setRules={setRules}/>
             </span>
             {displayRules}
         </Container>

@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const JsonEdit = props => {
-    const { className, rules } = props;
+    const { className, rules, setRules } = props;
     const classes = useStyles();
 
     const [show, setShow] = useState(false);
@@ -56,7 +56,7 @@ const JsonEdit = props => {
             return;
         }
         parsed.forEach(entry => (entry.id = uuidv4()));
-        console.log(parsed);
+        setRules(parsed)
         setShow(false);
         setText(strJSON);
     };
