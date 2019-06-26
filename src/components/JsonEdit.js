@@ -16,6 +16,7 @@ import {
     DialogContent,
     Typography
 } from "@material-ui/core";
+import Edit from "@material-ui/icons/Edit"
 import uuidv4 from "uuid/v4";
 
 // Component
@@ -72,13 +73,13 @@ const JsonEdit = props => {
     // ========================================================================
     return (
         <div>
-            <Tooltip title="Edit Directly" placement="top">
+            <Tooltip title="Import/Copy" placement="top">
                 <Button
                     variant="outlined"
                     className={buttonStyle}
                     onClick={onButtonClick}
                 >
-                    JSON
+                    <Edit/>
                 </Button>
             </Tooltip>
 
