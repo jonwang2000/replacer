@@ -23,13 +23,14 @@ import uuidv4 from "uuid/v4";
 // ============================================================================
 
 const JsonEdit = props => {
+
     // Props and Styles
     const { titleStyle, buttonStyle, rules, setRules } = props;
 
     // Constant representing stringify'd data
     const strJSON = JSON.stringify(rules, ["inRule", "outRule"]);
 
-    // Stat hooks
+    // State hooks
     const [show, setShow] = useState(false);
     const [text, setText] = useState(strJSON);
 

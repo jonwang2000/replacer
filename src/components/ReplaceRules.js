@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "center"
     },
     entire: {
-        padding: 0
+        padding: 0,
     },
     marginer: {
         marginTop: theme.spacing(2)
@@ -89,7 +89,10 @@ const ReplaceRules = props => {
     return (
         <Container spacing={0} maxWidth="xs" className={classes.entire}>
             <span className={classes.alignDiv}>
-                <Help className={classes.button} />
+                <Help
+                    buttonStyle={classes.button}
+                    titleStyle={classes.marginer}
+                />
                 <Tooltip title="Add Rule" placement="top">
                     <Button
                         variant="outlined"
