@@ -4,6 +4,8 @@
  *
  */
 
+ // Import Statements
+ // ===========================================================================
 import React from "react";
 import Rule from "./Rule";
 import Help from "./Help";
@@ -17,6 +19,9 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import Delete from "@material-ui/icons/Delete";
+
+// Styling definitions, used for Buttons and Dialog titles for children
+// ============================================================================
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -35,10 +40,17 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const ReplaceRules = props => {
-    const { rules, setRules } = props;
+// Component
+// ============================================================================
 
+const ReplaceRules = props => {
+
+    // Props and styles
+    const { rules, setRules } = props;
     const classes = useStyles();
+
+    // Handlers and Helpers
+    // ========================================================================
 
     // Add object to rule array
     const addRule = () => {
@@ -85,6 +97,9 @@ const ReplaceRules = props => {
             />
         );
     });
+
+    // Component Return
+    // ========================================================================
 
     return (
         <Container spacing={0} maxWidth="xs" className={classes.entire}>
