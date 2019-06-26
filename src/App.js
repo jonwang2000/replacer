@@ -4,12 +4,12 @@
  *  State:  inputText - stores current text in the input field
  *			rules - contains array of objects with inRule, outRule, id, turned into functions
  *					by functionArr constant.
- *	Current status: done logic, need to do styling
  *
  */
 
+// Import statements
+// ============================================================================
 import React, { useState } from "react";
-
 import TextZone from "./components/TextZone";
 import ReplaceRules from "./components/ReplaceRules";
 
@@ -23,6 +23,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import uuidv4 from "uuid/v4";
 import { Grid } from "@material-ui/core";
 
+// Styles 
+// ============================================================================
 const useStyles = makeStyles(theme => ({
     root: {
         paddingTop: "70px",
@@ -30,18 +32,24 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+// Component
+// ============================================================================
+
 const App = () => {
+
+    // Styles
     const classes = useStyles();
 
-    // State for input text
+    // State hook setup
     const [inputText, setInputText] = useState("");
-
-    // State for rules
     const [rules, setRules] = useState([
         { inRule: "", outRule: "", id: uuidv4() }
     ]);
 
-    // Event handler for input
+    // Handlers and Helpers
+    // ========================================================================
+
+    // For input change
     const inputHandle = event => {
         setInputText(event.target.value);
     };
@@ -71,6 +79,9 @@ const App = () => {
 
     // Set output to transformed text
     const output = transitionText;
+
+    // Component Return
+    // ========================================================================
 
     return (
         <Container className={classes.root} component="main" maxWidth="sm">
