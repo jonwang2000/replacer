@@ -33,6 +33,10 @@ const JsonEdit = props => {
         setShow(false);
     };
 
+    const handleImport = () => {
+        setShow(false);
+    }
+    
     return (
         <div>
             <Tooltip title="Edit Directly" placement="top">
@@ -65,12 +69,17 @@ const JsonEdit = props => {
                         multiline
                         rows={8}
                         rowsMax={10}
-                        readOnly
                         fullWidth={true}
-                        value={JSON.stringify(rules)}
+                        defaultValue={JSON.stringify(rules,["inRule" , "outRule"])}
                         variant="outlined"
                     />
                     <DialogActions>
+                        <Button
+                            onClick={handleImport}
+                            style={{ justifyContent: "center" }}
+                        >
+                            Import
+                        </Button>
                         <Button
                             onClick={onClose}
                             style={{ justifyContent: "center" }}
