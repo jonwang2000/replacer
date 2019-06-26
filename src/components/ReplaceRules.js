@@ -104,6 +104,15 @@ const ReplaceRules = props => {
                         <Delete />
                     </Button>
                 </Tooltip>
+                <Tooltip title="Test" placement="top">
+                    <Button
+                        variant="outlined"
+                        className={classes.button}
+                        onClick={() => console.log(JSON.stringify(rules))}
+                    >
+                        <Delete />
+                    </Button>
+                </Tooltip>
             </span>
             {displayRules}
         </Container>
