@@ -59,8 +59,7 @@ const TextZone = props => {
 					id="standard-multiline-flexible"
 					label="Input"
 					multiline
-					rows="4"
-					rowsMax="8"
+					rows={6}
 					value={inputText}
 					onChange={inputHandle}
 					margin="normal"
@@ -76,8 +75,7 @@ const TextZone = props => {
 					id="standard-multiline-flexible"
 					label="Output"
 					multiline
-					rows="4"
-					rowsMax="8"
+					rows={6}
 					value={outputText}
 					readOnly
 					margin="normal"
