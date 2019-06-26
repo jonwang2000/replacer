@@ -4,7 +4,7 @@
  * 
  */
 
-// Import statments
+// Import statements
 import React, { useState } from "react";
 import {
     Tooltip,
