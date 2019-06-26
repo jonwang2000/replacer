@@ -4,16 +4,16 @@
  *
  */
 
+// Import statements
 import React from "react";
-
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
-
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
+// styles
+// ============================================================================
 const useStyles = makeStyles(theme => ({
 	ruleDiv: {
 		display: "flex",
@@ -24,8 +24,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-// Unholy ground, used for Textfields
-// ****** DON'T MESS WITH THIS I NEED TO DO MORE RESEARCH *******
+// Custom Colors for textfield
 const CSSTextField = withStyles({
 	root: {
 		"& label.Mui-focused": {
@@ -42,11 +41,17 @@ const CSSTextField = withStyles({
 	}
 })(TextField);
 
+// Component
+// ============================================================================
+
 const Rule = props => {
-	const classes = useStyles();
 
+	// Props and Styles
 	const { inRule, editIn, outRule, editOut, delRule } = props;
+    const classes = useStyles();
 
+    // Component Return
+    // ========================================================================
 	return (
 		<Grid
 			container
