@@ -41,6 +41,10 @@ const JsonEdit = props => {
         setText(strJSON);
     };
 
+    const handleCopy = () => {
+        navigator.clipboard.writeText(text)
+    }
+
     const handleChange = e => {
         setText(e.target.value);
     };
@@ -56,7 +60,7 @@ const JsonEdit = props => {
             return;
         }
         parsed.forEach(entry => (entry.id = uuidv4()));
-        setRules(parsed)
+        setRules(parsed);
         setShow(false);
         setText(strJSON);
     };
@@ -99,6 +103,12 @@ const JsonEdit = props => {
                         variant="outlined"
                     />
                     <DialogActions>
+                        <Button
+                            onClick={handleCopy}
+                            style={{ justifyContent: "center" }}
+                        >
+                            Copy
+                        </Button>
                         <Button
                             onClick={handleImport}
                             style={{ justifyContent: "center" }}
