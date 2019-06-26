@@ -1,17 +1,17 @@
 /*
  *  TextZone consists of the input and output text fields.
- *  It only should be inputting data from the input field.
+ *      It only should be inputting data from the input field.
  */
 
+// Import statements
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-
 import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
-
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
-// Styling for arrow
+// Styling
+// ============================================================================
 const useStyles = makeStyles(theme => ({
 	arrow: {
 		position: "relative",
@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-// Unholy ground, used for Textfields
-// ****** DON'T MESS WITH THIS I NEED TO DO MORE RESEARCH *******
+// *** Don't touch too much ***
+// This is apparently how you deal with styling a textarea
 const CSSTextField = withStyles({
 	root: {
 		"& label.Mui-focused": {
@@ -42,11 +42,16 @@ const CSSTextField = withStyles({
 	}
 })(TextField);
 
-const TextZone = props => {
-	const { inputText, inputHandle, outputText } = props;
+// Component
+// ============================================================================
 
+const TextZone = props => {
+    
+    // Props and Styles
+	const { inputText, inputHandle, outputText } = props;
 	const classes = useStyles();
 
+    // Component Return
 	return (
 		<Grid container spacing={4} alignItems="center" justify="center">
 			<Grid item xs >
