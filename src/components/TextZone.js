@@ -49,7 +49,7 @@ const TextZone = props => {
 
 	return (
 		<Grid container spacing={4} alignItems="center" justify="center">
-			<Grid item xs alignContent='center'>
+			<Grid item xs >
 				<CSSTextField
 					id="standard-multiline-flexible"
 					label="Input"

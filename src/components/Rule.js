@@ -51,7 +51,6 @@ const Rule = props => {
 		<Grid
 			container
 			spacing={2}
-			maxWidth="xs"
 			className={classes.ruleDiv}
 			style={{ marginTop: "-13px" }}
 		>

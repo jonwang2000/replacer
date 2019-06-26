@@ -42,16 +42,16 @@ const Help = props => {
                     </Typography>
                 </DialogTitle>
                 <DialogContent>
-                    <Typography paragraph="true" variant="p">
+                    <Typography paragraph="true" variant="body1">
                         This is a React app meant change and manipulate text
                         based on user-defined rules using Material-UI for UI.
                     </Typography>
-                    <Typography paragraph="true" variant="p">
+                    <Typography paragraph="true" variant="body1">
                         To use, simply create a rule, place in what you want
                         replaced to the input field, and what you want to
                         replace it in the output field.
                     </Typography>
-                    <Typography variant="p">
+                    <Typography variant="body1">
                         Replacer works through rules top down, so outputs that
                         match later inputs will also be replaced.
                     </Typography>

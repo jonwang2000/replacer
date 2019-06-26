@@ -66,7 +66,7 @@ const App = () => {
 		<Container className={classes.root} component="main" maxWidth="sm">
 			<CssBaseline />
 
-			<Grid container spacing={3} maxWidth="lg">
+			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Typography variant="h3" component="h1" align="center">
 						Replacer
@@ -86,7 +86,7 @@ const App = () => {
 				</Grid>
 
 				<Grid item xs={12}>
-					<Typography variant="p" component="p" align="center">
+					<Typography variant="body1" component="p" align="center">
 						Made with React and Material UI
 						<br />
 						<Link

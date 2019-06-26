@@ -85,6 +85,7 @@ const ReplaceRules = props => {
     return (
         <Container spacing={0} maxWidth="xs" className={classes.entire}>
             <span className={classes.alignDiv}>
+                <Help className={classes.button} />
                 <Tooltip title="Add Rule" placement="top">
                     <Button
                         variant="outlined"
@@ -94,7 +95,6 @@ const ReplaceRules = props => {
                         <AddCircleOutline />
                     </Button>
                 </Tooltip>
-                <Help className={classes.button} />
                 <Tooltip title="Clear All" placement="top">
                     <Button
                         variant="outlined"
